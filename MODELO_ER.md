@@ -10,6 +10,7 @@ erDiagram
     LIVROS ||--o{ ITENS_PEDIDO : "contem"
     CLIENTES ||--o{ PEDIDOS : "faz"
     PEDIDOS ||--o{ ITENS_PEDIDO : "possui"
+    LIVROS ||--o{ AVALIACOES_MONGO : "recebe"
 
     CATEGORIAS {
         int id PK
@@ -46,19 +47,19 @@ erDiagram
     }
 
     ITENS_PEDIDO {
-        int pedido_id PK,FK
-        int livro_id PK,FK
+        int pedido_id PK
+        int livro_id PK
         int quantidade
         decimal(10,2) preco_unitario
     }
 
     AVALIACOES_MONGO {
-        objectId _id PK
-        int livro_id FK_LOGICA
+        string _id PK
+        int livro_id FK
         string email_cliente
         int nota
         string comentario
-        date data
+        string data
     }
 ```
 
